@@ -15,20 +15,23 @@ header{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-ul li a{
+ul li button{
     color: #f7b731;
     text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
 }
 
-ul li a:hover{
+ul li button:hover{
     color: #fbdb98;
     text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
 
-ul li.active a{
+ul li.active button{
     color: #fbdb98;
     text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
+}
+.profile{
+    margin-top: 20px;
 }

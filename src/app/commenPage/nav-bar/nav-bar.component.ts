@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,15 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  isActive: boolean = false;
+  activeIndex: number = 0;
 
-  onClick(): void {
-    this.isActive = true;
+  setActive(index: number) {
+    this.activeIndex = index;
   }
 
-  onMouseLeave(): void {
-    if (!this.isActive) {
-      this.isActive = false;
-    }
+
+  constructor(private router: Router) {}
+
+  navigateTo(path: string) {
+    this.router.navigate([path]);
   }
 }

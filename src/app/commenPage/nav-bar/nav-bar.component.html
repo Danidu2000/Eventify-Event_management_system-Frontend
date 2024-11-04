@@ -9,25 +9,43 @@
 
 
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                    <li #listItem (click)="onClick()" (mouseleave)="onMouseLeave()" [class.active]="isActive">
-                        <a href="#" class="nav-link">
+                    <li (click)="setActive(0)" [class.active]="activeIndex === 0">
+                        <button (click)="navigateTo('home')" class="nav-link">
                             <h2 class="bi d-block mx-auto mt-3"><i class="bi bi-house-door-fill"></i></h2>
-                        </a>
+                        </button>
                     </li>
-                    <li #listItem (click)="onClick()" (mouseleave)="onMouseLeave()" [class.active]="isActive">
-                        <a href="#" class="nav-link">
+                    <li (click)="setActive(1)" [class.active]="activeIndex === 1">
+                        <button class="nav-link">
                             <h2 class="bi d-block mx-auto mt-3"><i class="bi bi-calendar2-event"></i></h2>
-                        </a>
+                        </button>
                     </li>
-                    <li #listItem (click)="onClick()" (mouseleave)="onMouseLeave()" [class.active]="isActive">
-                        <a href="#" class="nav-link">
+                    <li (click)="setActive(2)" [class.active]="activeIndex === 2">
+                        <button class="nav-link">
                             <h2 class="bi d-block mx-auto mt-3"><i class="bi bi-app-indicator"></i></h2>
-                        </a>
+                        </button>
                     </li>
-                    <li #listItem (click)="onClick()" (mouseleave)="onMouseLeave()" [class.active]="isActive">
-                        <a href="#" class="nav-link">
+                    <li (click)="setActive(3)" [class.active]="activeIndex === 3">
+                        <button class="nav-link">
                             <h2 class="bi d-block mx-auto mt-3"><i class="bi bi-gear"></i></h2>
-                        </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link">
+                            <div class="profile dropdown text-end">
+                                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                                        class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                </ul>
+                            </div>
+                        </button>
                     </li>
                 </ul>
             </div>

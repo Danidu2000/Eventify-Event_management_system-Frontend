@@ -1,0 +1,5 @@
+h1{
+    color: #f7b731;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}

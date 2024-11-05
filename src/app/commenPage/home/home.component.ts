@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import AOS from 'aos';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,8 @@ import AOS from 'aos';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
-  constructor(private router: Router) {}
+export class HomeComponent implements OnInit {
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     AOS.init({
@@ -24,5 +25,9 @@ export class HomeComponent implements OnInit{
         AOS.refreshHard(); // or use AOS.refresh() if refreshHard() is not available
       }
     });
+  }
+
+  signUp() {
+    this.router.navigate(['/login']);
   }
 }

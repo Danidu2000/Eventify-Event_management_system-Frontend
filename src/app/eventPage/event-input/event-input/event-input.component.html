@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-lg-6 col-12 mb-5 mt-5">
+            <div class="form-event">
+                <img class="mb-4" src="assets/img/logo with shadow.png" alt="" width="72">
+                <h1 class="h3 mb-3 fw-normal">Create a new event</h1>
+
+                <div class="form-floating mb-3">
+                    <input type="name" class="form-control" id="txtTitle" placeholder="name" [(ngModel)]="event.title" required>
+                    <label for="InputName">Title</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a description here" id="txaDescription"
+                        style="height: 100px" [(ngModel)]="event.description" required></textarea>
+                    <label for="floatingTextarea2">Description</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="location" class="form-control" id="txtLocation" placeholder="location" [(ngModel)]="event.location" required>
+                    <label for="InputEmail"><i class="bi bi-geo-alt"></i> Location</label>
+                </div>
+                <div class="form mb-3">
+                    <label for="event-date">Choose an event date:</label>
+                    <input type="date" class="form-control" id="event-date" name="event-date" [(ngModel)]="event.date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
+                </div>
+                <hr>
+                <button (click)="onSubmit()" class="btn btn-warning w-100 py-2" type="submit">Create Event</button>
+                <hr>
+                <button (click)="navigateTo('event')"class="btn btn-warning w-25 py-2 mt-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
+                <p class="mt-5 mb-3 text-body-secondary">&copy; 2024 Eventify.All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>

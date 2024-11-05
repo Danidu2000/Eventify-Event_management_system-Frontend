@@ -15,7 +15,7 @@
                         </button>
                     </li>
                     <li (click)="setActive(1)" [class.active]="activeIndex === 1">
-                        <button class="nav-link">
+                        <button (click)="navigateToEvent()" class="nav-link">
                             <h2 class="bi d-block mx-auto mt-3"><i class="bi bi-calendar2-event"></i></h2>
                         </button>
                     </li>

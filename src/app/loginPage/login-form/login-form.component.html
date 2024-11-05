@@ -13,19 +13,21 @@
                 <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com"  [(ngModel)]="loginData.email">
                     <label for="InputEmail">Email address</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="txtPassword" placeholder="Password" [(ngModel)]="loginData.password">
                     <label for="InputPassword">Password</label>
                 </div>
                 <hr>
-                <button (click)="navigateTo('commen')"class="btn btn-warning w-100 py-2" type="submit">Sign in</button>
+                <button (click)="onSignIn()"class="btn btn-warning w-100 py-2" type="submit">Sign in</button>
                 <a href="">Forgotten password?</a>
                 <hr>
                 <p>If you don't have an account</p>
                 <button (click)="navigateTo('signup')" class="btn btn-secondary w-100 py-2" type="submit">Register</button>
+                <hr>
+                <button (click)="navigateTo('home')"class="btn btn-warning w-25 py-2 mt-3" type="submit"><i class="bi bi-arrow-left"></i> Home</button>
                 <p class="mt-5 mb-3 text-body-secondary">&copy; 2024 Eventify.All rights reserved</p>
             </div>
         </div>

@@ -36,6 +36,10 @@ export class EventInputComponent {
   }
 
   onSubmit(): void {
+     // Set the organizer_id to the userId from AuthService
+     this.event.organizer_id = this.authService.getUserId(); 
+
+    // Check if an image file is selected
     if (!this.selectedFile) {
       alert("Please select an image file.");
       return;

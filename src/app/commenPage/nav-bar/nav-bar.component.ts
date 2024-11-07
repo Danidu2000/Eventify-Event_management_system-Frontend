@@ -35,4 +35,12 @@ export class NavBarComponent {
       this.router.navigate(['/login']);
     }
   }
+
+  navigateToSettings() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/settings']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }

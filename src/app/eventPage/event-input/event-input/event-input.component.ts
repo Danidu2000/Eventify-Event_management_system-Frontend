@@ -22,7 +22,8 @@ export class EventInputComponent {
     description: '',
     location: '',
     date: '',
-    organizer_id: ''
+    time: '',
+    organizerId: ''
   };
   selectedFile: File | null = null;
 
@@ -37,7 +38,7 @@ export class EventInputComponent {
 
   onSubmit(): void {
      // Set the organizer_id to the userId from AuthService
-     this.event.organizer_id = this.authService.getUserId(); 
+     this.event.organizerId = this.authService.getUserId(); 
 
     // Check if an image file is selected
     if (!this.selectedFile) {

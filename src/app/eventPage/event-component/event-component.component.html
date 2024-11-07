@@ -1,11 +1,11 @@
 <div class="card m-3">
     <img src="assets/img/sample img 01.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-        <h2 id="title">Card title</h2>
-        <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content.
-            This content is a little bit longer.</p>
-        <h4 class="text-danger" id="date">08-11-2024 at Sri lanka</h4>
-        <button class="btn btn-warning" id="buyTicket"><i class="bi bi-ticket-perforated"></i> Buy ticket</button>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <h2 id="title">{{eventInfo.title}}</h2>
+        <p class="card-text" id="description">{{eventInfo.description}}</p>
+        <h5 class="text-body-secondary" id="date"><i class="bi bi-calendar-event"></i> Date: {{eventInfo.date}}</h5>
+        <h5 class="text-body-secondary" id="date"><i class="bi bi-clock"></i> Time: {{eventInfo.time}}</h5>
+        <h5 class="text-body-secondary" id="date"><i class="bi bi-geo-alt"></i> Location: {{eventInfo.location}}</h5>
     </div>
+    <button class="btn btn-lg btn-warning" id="buyTicket"><i class="bi bi-ticket-perforated"></i> Buy tickets</button>
 </div>

@@ -1,0 +1,66 @@
+<header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal text-body-emphasis"><i class="bi bi-ticket-perforated"></i> Tickets</h1>
+        <p class="fs-5 text-body-secondary">Choose your ideal event experience! Select from Standard, VIP, or All-Access
+            tickets to enjoy unique benefits tailored to every type of attendee. Whether you're looking for premium
+            seating, exclusive access, or just the essentials, find the perfect ticket to make your event unforgettable.
+        </p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-success">
+                <div class="card-header py-3 text-bg-success border-success">
+                    <h4 class="my-0 fw-normal">Standard</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title" id="price-standard">1000LKR</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Access to the main event only.</li>
+                        <li>Free seating (first-come, first-served).</li>
+                        <li>Basic event swag.</li>
+                        <li>Access to food and beverage stalls.</li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-success">Buy</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">VIP</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title" id="price-vip">3000LKR</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Priority entry with a separate entrance.</li>
+                        <li>Reserved premium seating closer to the stage.</li>
+                        <li>Complimentary refreshments and snacks.</li>
+                        <li>Exclusive event swag (e.g., T-shirt, tote bag).</li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary">Buy</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-danger">
+                <div class="card-header py-3 text-bg-danger border-danger">
+                    <h4 class="my-0 fw-normal">All-Access</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title" id="price-all-access">5000LKR</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Entry to all event areas, including backstage.</li>
+                        <li>Meet-and-greet with event speakers or performers.</li>
+                        <li>Exclusive workshops and sessions.</li>
+                        <li>Premium swag package.</li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-danger">Buy</button>
+                </div>
+            </div>
+        </div>
+        <button (click)="navigateTo('event')" class="btn btn-warning w-100 py-2 mt-3" type="submit" ><i class="bi bi-arrow-left"></i> Back to events</button>
+    </div>
+</div>

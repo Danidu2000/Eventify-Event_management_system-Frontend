@@ -22,6 +22,11 @@
                     <label for="event-date">Choose an event date:</label>
                     <input type="date" class="form-control" id="event-date" name="event-date" [(ngModel)]="event.date" required>
                 </div>
+                <div class="form mb-3">
+                    <label for="eventTime">Event Time</label>
+                    <input type="time" class="form-control" id="eventTime" name="eventTime" [(ngModel)]="event.time" required>
+                </div>
+                
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Default file input example</label>
                     <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">

@@ -7,11 +7,13 @@ import { FooterComponent } from "./commenPage/footer/footer.component";
 import { EventComponentComponent } from "./eventPage/event-component/event-component.component";
 import { EventFormComponent } from "./eventPage/event-form/event-form.component";
 import { EventInputComponent } from "./eventPage/event-input/event-input/event-input.component";
+import { TicketFormComponent } from "./ticketPage/ticket-form/ticket-form.component";
+import { SettingPageComponent } from "./settingPage/setting-page/setting-page.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, SignupFormComponent, NavBarComponent, FooterComponent, EventComponentComponent, EventFormComponent, EventInputComponent],
+  imports: [RouterOutlet, LoginFormComponent, SignupFormComponent, NavBarComponent, FooterComponent, EventComponentComponent, EventFormComponent, EventInputComponent, TicketFormComponent, SettingPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -10,4 +10,8 @@
             <button (click)="navigateTo('event-input')" class="btn btn-warning w-25 py-2 mt-3" type="submit" ><i class="bi bi-plus-lg"></i> Add new event</button>
     </div>
 </div>
-<app-event-component></app-event-component>
+<div class="container-flud">
+    <div *ngFor="let event of eventList" class="row">
+        <app-event-component [eventInfo]="event"></app-event-component>
+    </div>
+</div>

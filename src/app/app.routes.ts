@@ -10,7 +10,8 @@ import { SettingPageComponent } from './settingPage/setting-page/setting-page.co
 import { ProfileSettingFormComponent } from './settingPage/profile-setting-form/profile-setting-form.component';
 import { EventSettingFormComponent } from './settingPage/event-setting-form/event-setting-form.component';
 import { TicketFormComponent } from './ticketPage/ticket-form/ticket-form.component';
-import { CartPageComponent } from './cart-page/cart-page.component';
+import { PaymentComponent } from './paymentPage/payment/payment.component';
+import { CartPageComponent } from './cartPage/cart-page.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -23,7 +24,8 @@ export const routes: Routes = [
     {path:"profile-settings",component: ProfileSettingFormComponent},
     {path:"event-settings",component: EventSettingFormComponent},
     {path:"tickets",component: TicketFormComponent},
-    {path:"cart",component: CartPageComponent}
+    {path:"cart",component: CartPageComponent},
+    {path:"payment",component: PaymentComponent},
 ];
 
 @NgModule({

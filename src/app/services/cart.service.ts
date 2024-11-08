@@ -24,4 +24,8 @@ export class CartService {
   clearCart() {
     this.cart = [];
   }
+
+  removeItem(index: number): void {
+    this.cart.splice(index, 1);
+  }
 }

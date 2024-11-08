@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Payment Summary</h2>
+  
+    <!-- Payment Form -->
+    <form class="border p-4 rounded shadow-sm bg-light">
+      <div class="mb-3">
+        <label for="paymentMethod" class="form-label">Payment Method</label>
+        <select id="paymentMethod" [(ngModel)]="method" name="method" class="form-select">
+          <option value="" disabled>Select a method</option>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Debit Card">Debit Card</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Cash">Cash</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" [(ngModel)]="amount" name="amount" class="form-control" id="amount" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="text" [(ngModel)]="date" name="date" class="form-control" id="date" readonly>
+      </div>
+      <button type="button" (click)="processPayment()" class="btn btn-primary w-100">Process Payment</button>
+    </form>
+  
+    <!-- Bill Summary -->
+    <div class="my-4 p-4 rounded shadow-sm bg-white">
+      <h3 class="text-center mb-3">Bill Summary</h3>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between" *ngFor="let item of cartItems">
+          <span>{{ item.type }} Ticket</span>
+          <span>{{ item.price }} LKR</span>
+        </li>
+      </ul>
+      <h4 class="text-end">Total: {{ total }} LKR</h4>
+      <button type="button" (click)="printBill()" class="btn btn-secondary w-100 mt-3">Print Bill</button>
+    </div>
+  </div>
+  

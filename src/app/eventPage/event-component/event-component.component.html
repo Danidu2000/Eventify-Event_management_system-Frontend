@@ -1,12 +1,13 @@
 <div class="card m-3">
     <img src="{{ eventInfo.imagePath}}" class="card-img-top" alt="...">
     <div class="card-body">
-        <p>{{ eventInfo.imagePath}}</p> <!-- To display the value of the imagePath -->
         <h2 id="title">{{eventInfo.title}}</h2>
         <p class="card-text" id="description">{{eventInfo.description}}</p>
         <h5 class="text-body-secondary" id="date"><i class="bi bi-calendar-event"></i> Date: {{eventInfo.date}}</h5>
         <h5 class="text-body-secondary" id="time"><i class="bi bi-clock"></i> Time: {{eventInfo.time}}</h5>
         <h5 class="text-body-secondary" id="location"><i class="bi bi-geo-alt"></i> Location: {{eventInfo.location}}</h5>
+        <button (click)="navigateTo('reviews');setEventId(eventInfo.id)" class="btn btn-warning m-3" id="buyTicket"><i class="bi bi-file-earmark-ruled"></i> View reviews</button>
+        <button (click)="navigateTo('review-input');setEventId(eventInfo.id)" class="btn btn-warning" id="buyTicket"><i class="bi bi-plus-lg"></i> add review</button>
     </div>
     <button (click)="navigateTo('tickets');setEventId(eventInfo.id)" class="btn btn-lg btn-warning" id="buyTicket"><i class="bi bi-ticket-perforated"></i> Buy tickets</button>
 </div>

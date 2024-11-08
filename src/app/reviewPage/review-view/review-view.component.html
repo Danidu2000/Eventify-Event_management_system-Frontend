@@ -1,0 +1,7 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">User Reviews</h2>
+
+    <div *ngFor="let review of reviewList" class="container">
+        <app-review-component [reviewInfo]="review"></app-review-component>
+    </div>
+</div>

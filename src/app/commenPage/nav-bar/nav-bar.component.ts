@@ -43,4 +43,12 @@ export class NavBarComponent {
       this.router.navigate(['/login']);
     }
   }
+
+  navigateToCart() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/cart']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }

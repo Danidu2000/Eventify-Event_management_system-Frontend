@@ -4,8 +4,8 @@
         <h2 id="title">{{eventInfo.title}}</h2>
         <p class="card-text" id="description">{{eventInfo.description}}</p>
         <h5 class="text-body-secondary" id="date"><i class="bi bi-calendar-event"></i> Date: {{eventInfo.date}}</h5>
-        <h5 class="text-body-secondary" id="date"><i class="bi bi-clock"></i> Time: {{eventInfo.time}}</h5>
-        <h5 class="text-body-secondary" id="date"><i class="bi bi-geo-alt"></i> Location: {{eventInfo.location}}</h5>
+        <h5 class="text-body-secondary" id="time"><i class="bi bi-clock"></i> Time: {{eventInfo.time}}</h5>
+        <h5 class="text-body-secondary" id="location"><i class="bi bi-geo-alt"></i> Location: {{eventInfo.location}}</h5>
     </div>
-    <button class="btn btn-lg btn-warning" id="buyTicket"><i class="bi bi-ticket-perforated"></i> Buy tickets</button>
+    <button (click)="navigateTo('tickets');setEventId(eventInfo.id)" class="btn btn-lg btn-warning" id="buyTicket"><i class="bi bi-ticket-perforated"></i> Buy tickets</button>
 </div>

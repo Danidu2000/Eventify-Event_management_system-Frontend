@@ -16,14 +16,14 @@
                     <h4 class="my-0 fw-normal">Standard</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title" id="price-standard">1000LKR</h1>
+                    <h1 class="card-title pricing-card-title" id="price-standard">{{standerdTicketPrice}}LKR</h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>Access to the main event only.</li>
                         <li>Free seating (first-come, first-served).</li>
                         <li>Basic event swag.</li>
                         <li>Access to food and beverage stalls.</li>
                     </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-success">Buy</button>
+                    <button (click)="addToCart('Standard', standerdTicketPrice)" type="button" class="w-100 btn btn-lg btn-success">Buy</button>
                 </div>
             </div>
         </div>
@@ -33,14 +33,14 @@
                     <h4 class="my-0 fw-normal">VIP</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title" id="price-vip">3000LKR</h1>
+                    <h1 class="card-title pricing-card-title" id="price-vip">{{vipTicketPrice}}LKR</h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>Priority entry with a separate entrance.</li>
                         <li>Reserved premium seating closer to the stage.</li>
                         <li>Complimentary refreshments and snacks.</li>
                         <li>Exclusive event swag (e.g., T-shirt, tote bag).</li>
                     </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-primary">Buy</button>
+                    <button (click)="addToCart('Vip', vipTicketPrice)" type="button" class="w-100 btn btn-lg btn-primary">Buy</button>
                 </div>
             </div>
         </div>
@@ -50,14 +50,14 @@
                     <h4 class="my-0 fw-normal">All-Access</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title" id="price-all-access">5000LKR</h1>
+                    <h1 class="card-title pricing-card-title" id="price-all-access">{{allAccessTicketPrice}}LKR</h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>Entry to all event areas, including backstage.</li>
                         <li>Meet-and-greet with event speakers or performers.</li>
                         <li>Exclusive workshops and sessions.</li>
                         <li>Premium swag package.</li>
                     </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-danger">Buy</button>
+                    <button (click)="addToCart('All-access', allAccessTicketPrice)" type="button" class="w-100 btn btn-lg btn-danger">Buy</button>
                 </div>
             </div>
         </div>

@@ -9,6 +9,8 @@ import { EventInputComponent } from './eventPage/event-input/event-input/event-i
 import { SettingPageComponent } from './settingPage/setting-page/setting-page.component';
 import { ProfileSettingFormComponent } from './settingPage/profile-setting-form/profile-setting-form.component';
 import { EventSettingFormComponent } from './settingPage/event-setting-form/event-setting-form.component';
+import { TicketFormComponent } from './ticketPage/ticket-form/ticket-form.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -19,7 +21,9 @@ export const routes: Routes = [
     {path:"event-input",component: EventInputComponent},
     {path:"settings",component: SettingPageComponent},
     {path:"profile-settings",component: ProfileSettingFormComponent},
-    {path:"event-settings",component: EventSettingFormComponent}
+    {path:"event-settings",component: EventSettingFormComponent},
+    {path:"tickets",component: TicketFormComponent},
+    {path:"cart",component: CartPageComponent}
 ];
 
 @NgModule({

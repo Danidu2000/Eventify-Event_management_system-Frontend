@@ -35,7 +35,40 @@
                 <button (click)="onSubmit()" class="btn btn-warning w-100 py-2" type="submit">Create Event</button>
                 <hr>
                 <button (click)="navigateTo('event')"class="btn btn-warning w-25 py-2 mt-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
-                <p class="mt-5 mb-3 text-body-secondary">&copy; 2024 Eventify.All rights reserved</p>
+
+                <div class="container mt-5">
+                    <form>
+                      <div class="row g-3">
+                        <!-- Ticket Price 1 -->
+                        <div class="col-12">
+                          <div class="input-group">
+                            <span class="input-group-text">Price 1</span>
+                            <input type="number" class="form-control" placeholder="Enter price for Standard ticket" #txtPriceStandard>
+                            <button (click)="AddTicket('standard', txtPriceStandard.value)" type="button" class="btn btn-success">Add</button>
+                          </div>
+                        </div>
+                        
+                        <!-- Ticket Price 2 -->
+                        <div class="col-12">
+                          <div class="input-group">
+                            <span class="input-group-text">Price 2</span>
+                            <input type="number" class="form-control" placeholder="Enter price for VIP ticket" #txtPriceVIP>
+                            <button (click)="AddTicket('vip', txtPriceVIP.value)" type="button" class="btn btn-primary">Add</button>
+                          </div>
+                        </div>
+                
+                        <!-- Ticket Price 3 -->
+                        <div class="col-12">
+                          <div class="input-group">
+                            <span class="input-group-text">Price 3</span>
+                            <input type="number" class="form-control" placeholder="Enter price for All-Access ticket" #txtPriceAllAccess>
+                            <button (click)="AddTicket('all-access', txtPriceAllAccess.value)" type="button" class="btn btn-danger">Add</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                
             </div>
         </div>
     </div>

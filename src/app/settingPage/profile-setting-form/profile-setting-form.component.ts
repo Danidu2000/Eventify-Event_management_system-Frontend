@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-profile-setting-form',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule, ToastAlertComponentComponent],
   templateUrl: './profile-setting-form.component.html',
   styleUrl: './profile-setting-form.component.css'
 })
 export class ProfileSettingFormComponent implements OnInit{
-  constructor(private router: Router, private authService: AuthService, private http: HttpClient) { }
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient,private toastService: ToastService) { }
   ngOnInit(): void {
     this.loadUserDetails();
   }
@@ -49,7 +51,11 @@ export class ProfileSettingFormComponent implements OnInit{
     this.http
       .put('http://localhost:8080/user/update-user', this.user)
       .subscribe((data) => {
-        alert('User Updated');
+        this.toastService.triggerAlertSuccess('User Updated Successfully!');
+      },
+      (error) => {
+        this.toastService.triggerAlertWarning('An error occurred while updating the user. Please try again.');
+        console.error('Error occurred while updating user:', error);
       });
   }
 }

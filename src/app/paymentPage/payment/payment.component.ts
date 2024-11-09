@@ -4,11 +4,13 @@ import { CommonModule, formatDate, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [FormsModule, CommonModule, NgFor],
+  imports: [FormsModule, CommonModule, NgFor, ToastAlertComponentComponent],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
@@ -18,7 +20,7 @@ export class PaymentComponent {
   date: string = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   userId: number;
 
-  constructor(private cartService: CartService, private authService: AuthService, private http: HttpClient) {
+  constructor(private cartService: CartService, private authService: AuthService, private http: HttpClient, private toastService: ToastService) {
     this.amount = this.cartService.getTotal();
     this.userId = this.authService.getUserId();
   }
@@ -49,18 +51,17 @@ export class PaymentComponent {
 
     this.http.post('http://localhost:8080/payment/add-payment', paymentData).subscribe(
       (data) => {
-        alert('Payment processed successfully!');
-        console.log('Payment Data:', paymentData);
+        this.toastService.triggerAlertSuccess('Payment processed successfully, Thank you for shopping with us!');
       },
       (error) => {
+        this.toastService.triggerAlertWarning('Error processing payment. Please try again.');
         console.error('Error processing payment:', error);
-        alert('Error processing payment. Please try again.');
       }
     );
   }
 
   ngOnDestroy() {
     this.cartService.clearCart();
-    alert('Cart cleared!');
+    this.toastService.triggerAlertMessage('Cart cleared!');
   }
 }

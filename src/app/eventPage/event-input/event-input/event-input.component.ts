@@ -4,11 +4,13 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { ToastService } from '../../../services/toast.service';
+import { ToastAlertComponentComponent } from "../../../alert/toast-alert-component/toast-alert-component.component";
 
 @Component({
   selector: 'app-event-input',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ToastAlertComponentComponent],
   templateUrl: './event-input.component.html',
   styleUrl: './event-input.component.css'
 })
@@ -28,7 +30,7 @@ export class EventInputComponent {
   };
   selectedFile: File | null = null;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private toastService: ToastService) { }
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
@@ -43,7 +45,7 @@ export class EventInputComponent {
 
     // Check if an image file is selected
     if (!this.selectedFile) {
-      alert("Please select an image file.");
+      this.toastService.triggerAlertMessage("Please select an image file.");
       return;
     }
 
@@ -56,10 +58,10 @@ export class EventInputComponent {
     this.http.post('http://localhost:8080/event/add-event', formData).subscribe(
       (response) => {
         this.eventId = response;
-        alert('Event created successfully');
+        this.toastService.triggerAlertSuccess('Event created successfully');
       },
       (error) => {
-        alert('Failed to create event');
+        this.toastService.triggerAlertWarning('Failed to create event');
         console.error(error);
       }
     );
@@ -75,7 +77,7 @@ export class EventInputComponent {
   AddTicket(status: string, price: any) {
     // Ensure the price is a valid number
     if (price <= 0) {
-      alert('Please enter a valid price.');
+      this.toastService.triggerAlertMessage('Please enter a valid price.');
       return;
     }
   
@@ -88,11 +90,10 @@ export class EventInputComponent {
     // Make the POST request to add the ticket
     this.http.post('http://localhost:8080/ticket/add-ticket', this.Ticket).subscribe(
       (response) => {
-        alert('Ticket added successfully');
-        console.log(response);
+        this.toastService.triggerAlertSuccess('Ticket added successfully');
       },
       (error) => {
-        alert('Failed to add ticket');
+        this.toastService.triggerAlertWarning('Failed to add ticket');
         console.error(error);
       }
     );

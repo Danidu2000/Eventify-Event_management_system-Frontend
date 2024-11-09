@@ -3,11 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-all-reviews-setting',
   standalone: true,
-  imports: [FormsModule,CommonModule, NgFor],
+  imports: [FormsModule, CommonModule, NgFor, ToastAlertComponentComponent],
   templateUrl: './all-reviews-setting.component.html',
   styleUrl: './all-reviews-setting.component.css'
 })
@@ -17,7 +19,8 @@ export class AllReviewsSettingComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private toastService: ToastService
   ) {}
   ngOnInit(): void {
     this.loadReviews();
@@ -42,9 +45,13 @@ export class AllReviewsSettingComponent implements OnInit{
   deleteReviewById(id: any) {
     this.http.delete(`http://localhost:8080/review/delete-by-id/${id}`)
       .subscribe(() => {
-        alert('Review deleted successfully');
+        this.toastService.triggerAlertSuccess('Review deleted successfully!');
         this.loadReviews();
-      });
+      },(error) => {
+        this.toastService.triggerAlertWarning('An error occurred while deleting the review. Please try again.');
+        console.error('Error occurred while deleting review:', error);
+      }
+    );
   }
 
   updateReview(review: any) {
@@ -54,8 +61,12 @@ export class AllReviewsSettingComponent implements OnInit{
   saveReview() {
     this.http.put(`http://localhost:8080/review/update-review`, this.tempReview)
       .subscribe(() => {
-        alert('Review updated successfully');
+        this.toastService.triggerAlertSuccess('Review updated successfully!');
         this.loadReviews();
-      });
+      },(error) => {
+        this.toastService.triggerAlertWarning('An error occurred while updating the review. Please try again.');
+        console.error('Error occurred while updating review:', error);
+      }
+    );
   }
 }

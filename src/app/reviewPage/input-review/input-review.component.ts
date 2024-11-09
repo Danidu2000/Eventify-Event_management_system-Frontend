@@ -5,11 +5,13 @@ import { EventService } from '../../services/event.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-input-review',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ToastAlertComponentComponent],
   templateUrl: './input-review.component.html',
   styleUrls: ['./input-review.component.css']
 })
@@ -26,7 +28,8 @@ export class InputReviewComponent implements OnInit {
     private router: Router,
     private eventService: EventService,
     private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -38,15 +41,15 @@ export class InputReviewComponent implements OnInit {
   onSubmit() {
     // Validate all fields
     if (!this.review.comment.trim()) {
-      alert('Please enter a comment.');
+      this.toastService.triggerAlertMessage('Please enter a comment.');
       return;
     }
     if (this.review.rating < 1 || this.review.rating > 5) {
-      alert('Please provide a valid rating between 1 and 5.');
+      this.toastService.triggerAlertMessage('Please provide a valid rating between 1 and 5.');
       return;
     }
     if (!this.review.date) {
-      alert('Please select a date.');
+      this.toastService.triggerAlertMessage('Please select a date.');
       return;
     }
 
@@ -55,12 +58,11 @@ export class InputReviewComponent implements OnInit {
     this.http.post('http://localhost:8080/review/add-review', this.review)
       .subscribe(
         (response) => {
-          alert('Review Added');
-          // this.router.navigate(['/reviews']); // Navigate to reviews page after successful submission
+          this.toastService.triggerAlertSuccess('Review Added Successfully!');
         },
         (error) => {
+          this.toastService.triggerAlertWarning('Failed to add review. Please try again.');
           console.error('Error adding review:', error);
-          alert('Failed to add review. Please try again.');
         }
       );
   }

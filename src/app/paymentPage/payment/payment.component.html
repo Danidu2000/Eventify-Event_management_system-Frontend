@@ -21,7 +21,7 @@
         <label for="date" class="form-label">Date</label>
         <input type="text" [(ngModel)]="date" name="date" class="form-control" id="date" readonly>
       </div>
-      <button type="button" (click)="processPayment()" class="btn btn-primary w-100">Process Payment</button>
+      <button type="button" (click)="processPayment()" class="btn btn-warning w-100"><i class="bi bi-cash-coin"></i> Process Payment</button>
     </form>
   
     <!-- Bill Summary -->
@@ -34,7 +34,10 @@
         </li>
       </ul>
       <h4 class="text-end">Total: {{ total }} LKR</h4>
-      <button type="button" (click)="printBill()" class="btn btn-secondary w-100 mt-3">Print Bill</button>
+      <button type="button" (click)="printBill()" class="btn btn-secondary w-100 mt-3"><i class="bi bi-printer"></i> Print Bill</button>
     </div>
   </div>
+
+
+  <app-toast-alert-component></app-toast-alert-component>
   

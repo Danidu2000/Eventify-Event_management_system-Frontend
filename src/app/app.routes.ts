@@ -14,6 +14,7 @@ import { PaymentComponent } from './paymentPage/payment/payment.component';
 import { CartPageComponent } from './cartPage/cart-page.component';
 import { ReviewViewComponent } from './reviewPage/review-view/review-view.component';
 import { InputReviewComponent } from './reviewPage/input-review/input-review.component';
+import { ReviewSettingFormComponent } from './settingPage/review-setting-form/review-setting-form/review-setting-form.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -29,7 +30,8 @@ export const routes: Routes = [
     {path:"cart",component: CartPageComponent},
     {path:"payment",component: PaymentComponent},
     {path:"reviews",component: ReviewViewComponent},
-    {path:"review-input",component: InputReviewComponent}
+    {path:"review-input",component: InputReviewComponent},
+    {path:"review-settings",component: ReviewSettingFormComponent},
 ];
 
 @NgModule({

@@ -7,10 +7,12 @@ export class AuthService {
 
   private loggedIn = false;
   private userId: any;
+  private role: any;
 
-  setLoggedIn(status: boolean, userId?: any) {
+  setLoggedIn(status: boolean, userId?: any, role?: any) {
     this.userId = userId;
     this.loggedIn = status;
+    this.role = role;
   }
 
   isLoggedIn(): boolean {
@@ -23,5 +25,9 @@ export class AuthService {
 
   getUserId(): any {
     return this.userId;
+  }
+
+  getUserRole(): any {
+    return this.role;
   }
 }

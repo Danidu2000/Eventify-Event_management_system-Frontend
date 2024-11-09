@@ -29,7 +29,7 @@ export class LoginFormComponent {
       .subscribe({
         next: (data: any) => {
           if (data.conformation) { // Check the 'conformation' field for login success
-            this.authService.setLoggedIn(true, data.user_id);
+            this.authService.setLoggedIn(true, data.user_id, data.role);
             alert(data.massage); // Show the login success message
           } else {
             alert(data.massage || 'Login failed'); // Show message if login fails

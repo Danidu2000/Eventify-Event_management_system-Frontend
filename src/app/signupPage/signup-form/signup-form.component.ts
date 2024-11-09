@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class SignupFormComponent {
   public user: any = {
     email: '',
-    role:"User",
+    role:"Admin",
     password: '',
     name: '',
     contact: ''

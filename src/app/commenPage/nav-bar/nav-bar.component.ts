@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,CommonModule],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit{
   activeIndex: number = 0;
+  public loginStatus: any;
 
   setActive(index: number) {
     this.activeIndex = index;
@@ -18,6 +21,9 @@ export class NavBarComponent {
 
 
   constructor(private router: Router, private authService: AuthService) {}
+  ngOnInit(): void {
+    this.loginStatus = "Login";
+  }
 
   navigateTo(path: string) {
     this.router.navigate([path]);
@@ -37,9 +43,12 @@ export class NavBarComponent {
   }
 
   navigateToSettings() {
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn() && this.authService.getUserRole() === 'Admin') {
       this.router.navigate(['/admin-settings']);
-    } else {
+    }else if (this.authService.isLoggedIn() && this.authService.getUserRole() === 'User') {
+      this.router.navigate(['/settings']);
+    }
+     else {
       this.router.navigate(['/login']);
     }
   }
@@ -49,6 +58,16 @@ export class NavBarComponent {
       this.router.navigate(['/cart']);
     } else {
       this.router.navigate(['/login']);
+    }
+  }
+
+  handleLogin() {
+    if (this.authService.isLoggedIn()) {
+      this.logout();
+      this.loginStatus = "Login";
+    } else {
+      this.router.navigate(['/login']);
+      this.loginStatus = "Logout";
     }
   }
 }

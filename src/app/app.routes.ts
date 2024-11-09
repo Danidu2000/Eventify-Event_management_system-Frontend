@@ -15,6 +15,11 @@ import { CartPageComponent } from './cartPage/cart-page.component';
 import { ReviewViewComponent } from './reviewPage/review-view/review-view.component';
 import { InputReviewComponent } from './reviewPage/input-review/input-review.component';
 import { ReviewSettingFormComponent } from './settingPage/review-setting-form/review-setting-form/review-setting-form.component';
+import { AdminSettingPageComponent } from './settingPage/admin-setting-page/admin-setting-page.component';
+import { UserSettingComponent } from './settingPage/user-setting/user-setting.component';
+import { AllEventSettingComponent } from './settingPage/all-event-setting/all-event-setting.component';
+import { AllReviewsSettingComponent } from './settingPage/all-reviews-setting/all-reviews-setting.component';
+import { PaymentViewComponent } from './settingPage/payment-view/payment-view.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -32,6 +37,11 @@ export const routes: Routes = [
     {path:"reviews",component: ReviewViewComponent},
     {path:"review-input",component: InputReviewComponent},
     {path:"review-settings",component: ReviewSettingFormComponent},
+    {path:"admin-settings",component: AdminSettingPageComponent},
+    {path:"user-settings",component: UserSettingComponent},
+    {path:"all-events-settings",component: AllEventSettingComponent},
+    {path:"all-reviews-settings",component: AllReviewsSettingComponent},
+    {path:"view-sales",component: PaymentViewComponent}
 ];
 
 @NgModule({

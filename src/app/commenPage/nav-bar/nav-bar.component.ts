@@ -38,7 +38,7 @@ export class NavBarComponent {
 
   navigateToSettings() {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/settings']);
+      this.router.navigate(['/admin-settings']);
     } else {
       this.router.navigate(['/login']);
     }

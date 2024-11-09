@@ -1,0 +1,23 @@
+<h3 class="text-center mt-3">View sales</h3>
+
+<div class="container">
+    <table class="table table-bordered table-hover mt-3">
+        <tr>
+            <th>Count</th>
+            <th>ID</th>
+            <th>Payment Method</th>
+            <th>Ammount</th>
+            <th>Date</th>
+            <th>User Id</th>
+        </tr>
+        <tr *ngFor="let payment of paymentList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{payment.id}}</td>
+            <td>{{payment.method}}</td>
+            <td>{{payment.amount}}</td>
+            <td>{{payment.date}}</td>
+            <td>{{payment.userId}}</td>
+        </tr>
+    </table>
+    <button (click)="navigateTo('admin-settings')" class="btn btn-warning w-100 py-2 my-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
+</div>

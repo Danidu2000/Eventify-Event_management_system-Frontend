@@ -1,0 +1,66 @@
+<h3 class="text-center mt-3">Manage events</h3>
+
+<div class="container">
+    <table class="table table-bordered table-hover mt-3">
+        <tr>
+            <th>Count</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <tr *ngFor="let event of eventList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{event.id}}</td>
+            <td>{{event.title}}</td>
+            <td>{{event.location}}</td>
+            <td>{{event.date}}</td>
+            <td>{{event.time}}</td>
+            <td><button (click)="deleteEventById(event.id)" class="btn btn-outline-danger w-50 my-2"><i class="bi bi-trash-fill"></i></button></td>
+            <td><button (click)="updateEvent(event)" class="btn btn-outline-primary w-50 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-pencil-square"></i></button></td>
+        </tr>
+    </table>
+    <button (click)="navigateTo('setting')" class="btn btn-warning w-100 py-2 my-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Event</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for="InputName">Title</label>
+            <div class="form-floating mb-3">
+                <input type="name" class="form-control" id="txtTitle" placeholder="name" [(ngModel)]="tempEvent.title">
+            </div>
+            <label for="floatingTextarea2">Description</label>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Leave a description here" id="txaDescription"
+                    style="height: 100px" [(ngModel)]="tempEvent.description" required></textarea>
+            </div>
+            <label for="InputEmail"><i class="bi bi-geo-alt"></i> Location</label>
+            <div class="form-floating mb-3">
+                <input type="location" class="form-control" id="txtLocation" placeholder="location" [(ngModel)]="tempEvent.location" required>
+            </div>
+            <label for="event-date">date</label>
+            <div class="form mb-3">
+                <input type="date" class="form-control" id="event-date" name="event-date" [(ngModel)]="tempEvent.date" required>
+            </div>
+            <label for="eventTime">Event Time</label>
+            <div class="form mb-3">
+                <input type="time" class="form-control" id="eventTime" name="eventTime" [(ngModel)]="tempEvent.time" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveEvent()" data-bs-dismiss="modal">Update Event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

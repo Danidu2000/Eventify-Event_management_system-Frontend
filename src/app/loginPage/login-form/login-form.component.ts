@@ -33,6 +33,9 @@ export class LoginFormComponent {
           if (data.conformation) { // Check the 'conformation' field for login success
             this.authService.setLoggedIn(true, data.user_id, data.role);
             this.toastService.triggerAlertSuccess(data.massage); // Show the login success message
+            setTimeout(() => {
+              this.router.navigate(['/home']);
+            }, 2000); // 2000 milliseconds
           } else {
             this.toastService.triggerAlertWarning(data.massage || 'Login failed'); // Show message if login fails
           }

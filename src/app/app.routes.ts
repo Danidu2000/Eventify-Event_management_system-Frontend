@@ -20,6 +20,8 @@ import { UserSettingComponent } from './settingPage/user-setting/user-setting.co
 import { AllEventSettingComponent } from './settingPage/all-event-setting/all-event-setting.component';
 import { AllReviewsSettingComponent } from './settingPage/all-reviews-setting/all-reviews-setting.component';
 import { PaymentViewComponent } from './settingPage/payment-view/payment-view.component';
+import { ForgotPasswordComponent } from './forgotPasswordPage/forgot-password/forgot-password.component';
+import { UpdatePasswordFormComponent } from './forgotPasswordPage/updatePassword/update-password-form/update-password-form.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"home",pathMatch:"full"},
@@ -41,7 +43,9 @@ export const routes: Routes = [
     {path:"user-settings",component: UserSettingComponent},
     {path:"all-events-settings",component: AllEventSettingComponent},
     {path:"all-reviews-settings",component: AllReviewsSettingComponent},
-    {path:"view-sales",component: PaymentViewComponent}
+    {path:"view-sales",component: PaymentViewComponent},
+    {path:"forgot-password",component: ForgotPasswordComponent},
+    {path:"update-password",component: UpdatePasswordFormComponent},
 ];
 
 @NgModule({

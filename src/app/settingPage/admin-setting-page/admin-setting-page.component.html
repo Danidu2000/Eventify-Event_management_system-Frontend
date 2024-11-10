@@ -1,75 +1,89 @@
 <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom"><i class="bi bi-gear"></i> Settings</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-person-circle"></i> Profile settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('profile-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+  <h2 class="pb-2 border-bottom"><i class="bi bi-gear"></i> Settings</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-person-circle"></i> Profile settings</h3>
+        <p>The Profile Setting Component allows users to easily update personal details like name, contact, and
+          password. With a simple, user-friendly design, it provides a quick way to keep profiles current and secure.
+        </p>
+        <button (click)="navigateTo('profile-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-calendar-event"></i> Event settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('event-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+    </div>
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-calendar-event"></i> Event settings</h3>
+        <p>The Event Settings Component enables users to configure event details such as date, time, location, and
+          ticket options. It’s designed to streamline event setup, ensuring all essential settings are managed
+          efficiently for a seamless experience.</p>
+        <button (click)="navigateTo('event-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-card-text"></i> Review settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('review-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+    </div>
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-card-text"></i> Review settings</h3>
+        <p>The Review Settings Component allows users to customize and manage review options, ensuring valuable feedback
+          is collected effectively. It provides controls to enable, filter, and moderate reviews, enhancing user
+          engagement and maintaining quality insights.</p>
+        <button (click)="navigateTo('review-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
     </div>
   </div>
+</div>
 <!-- Advanced Settings -->
-  <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom"><i class="bi bi-gear"></i>Advanced Settings</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-people"></i> User settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('user-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+<div class="container px-4 py-5" id="hanging-icons">
+  <h2 class="pb-2 border-bottom"><i class="bi bi-gear"></i>Advanced Settings</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-people"></i> User settings</h3>
+        <p>The User Settings Component offers users control over their personal preferences, account details, and
+          privacy options. It enables easy customization of notifications, profile updates, and security settings,
+          ensuring a tailored and secure user experience.</p>
+        <button (click)="navigateTo('user-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-calendar2-week"></i> All Events settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('all-events-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+    </div>
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-calendar2-week"></i> All Events settings</h3>
+        <p>The All Events Settings component allows users to manage event configurations, including visibility,
+          ticketing options, and scheduling. This streamlined setup ensures each event aligns with user preferences and
+          operational needs, offering flexibility and full control over the event details.</p>
+        <button (click)="navigateTo('all-events-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-file-text"></i> All Reviews settings</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('all-reviews-settings')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+    </div>
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-file-text"></i> All Reviews settings</h3>
+        <p>The All Reviews Settings component provides tools to manage event reviews efficiently. Users can moderate
+          comments, adjust visibility, and filter feedback for quick insights. This setup helps maintain a positive
+          experience by ensuring only relevant and constructive feedback appears publicly.</p>
+        <button (click)="navigateTo('all-reviews-settings')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <h3 class="fs-2 text-body-emphasis"><i class="bi bi-currency-dollar"></i> View sales</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <button (click)="navigateTo('view-sales')" class="btn btn-outline-warning">
-            Go to settings
-          </button>
-        </div>
+    </div>
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fs-2 text-body-emphasis"><i class="bi bi-currency-dollar"></i> View sales</h3>
+        <p>The View Sales component offers an overview of event sales data, providing insights into ticket purchases,
+          revenue, and trends. Users can track sales performance over time, filter by event, and analyze data to make
+          informed decisions. This streamlined view helps optimize event management by highlighting successful
+          strategies and identifying areas for improvement.</p>
+        <button (click)="navigateTo('view-sales')" class="btn btn-outline-warning">
+          Go to settings
+        </button>
       </div>
     </div>
   </div>
-  
+</div>

@@ -22,7 +22,9 @@ export class NavBarComponent implements OnInit{
 
   constructor(private router: Router, private authService: AuthService) {}
   ngOnInit(): void {
-    this.loginStatus = "Login";
+    this.authService.loggedInStatus$.subscribe(isLoggedIn => {
+      this.loginStatus = isLoggedIn ? "Logout" : "Login";
+    });
   }
 
   navigateTo(path: string) {
@@ -67,7 +69,6 @@ export class NavBarComponent implements OnInit{
       this.loginStatus = "Login";
     } else {
       this.router.navigate(['/login']);
-      this.loginStatus = "Logout";
     }
   }
 }

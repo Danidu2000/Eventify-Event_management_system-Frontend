@@ -32,6 +32,7 @@ export class LoginFormComponent {
         next: (data: any) => {
           if (data.conformation) { // Check the 'conformation' field for login success
             this.authService.setLoggedIn(true, data.user_id, data.role);
+            this.authService.setLoggedStatus(true);
             this.toastService.triggerAlertSuccess(data.massage); // Show the login success message
             setTimeout(() => {
               this.router.navigate(['/home']);

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ export class AuthService {
   private userId: any;
   private role: any;
   private forgotUserEmail: any;
+  private loggedInStatus = new BehaviorSubject<boolean>(false); // Observable for login status
+  loggedInStatus$ = this.loggedInStatus.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -50,5 +52,9 @@ export class AuthService {
 
   getForgotUserEmail(): any{
     return this.forgotUserEmail;
+  }
+
+  setLoggedStatus(isLoggedIn: boolean) {
+    this.loggedInStatus.next(isLoggedIn);
   }
 }

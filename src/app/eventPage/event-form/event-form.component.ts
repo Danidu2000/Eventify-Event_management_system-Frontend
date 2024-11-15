@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventComponentComponent } from "../event-component/event-component.component";
 import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-event-form',
@@ -17,6 +18,10 @@ export class EventFormComponent implements OnInit{
   constructor(private router: Router) { }
   ngOnInit(): void {
     this.loadEvents();
+    AOS.init({
+      duration: 1000,  // Animation duration in milliseconds
+      once: false,     // Set to false to trigger animations on every scroll
+    });
   }
   loadEvents() {
     fetch('http://localhost:8080/event/get-all')

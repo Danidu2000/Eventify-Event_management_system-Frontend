@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-event-setting-form',
@@ -15,7 +16,7 @@ import { ToastService } from '../../services/toast.service';
   styleUrl: './event-setting-form.component.css'
 })
 export class EventSettingFormComponent implements OnInit {
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private toastService: ToastService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private toastService: ToastService, private location: Location) { }
 
   ngOnInit(): void {
     this.loadEvents();
@@ -62,6 +63,10 @@ export class EventSettingFormComponent implements OnInit {
         console.error('Error occurred while updating event:', error);
       }
     );
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 
 }

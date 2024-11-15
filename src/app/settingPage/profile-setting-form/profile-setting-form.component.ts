@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile-setting-form',
@@ -15,7 +16,7 @@ import { ToastService } from '../../services/toast.service';
   styleUrl: './profile-setting-form.component.css'
 })
 export class ProfileSettingFormComponent implements OnInit{
-  constructor(private router: Router, private authService: AuthService, private http: HttpClient,private toastService: ToastService) { }
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient,private toastService: ToastService,private location: Location) { }
   ngOnInit(): void {
     this.loadUserDetails();
   }
@@ -57,5 +58,9 @@ export class ProfileSettingFormComponent implements OnInit{
         this.toastService.triggerAlertWarning('An error occurred while updating the user. Please try again.');
         console.error('Error occurred while updating user:', error);
       });
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-setting-page',
@@ -9,8 +10,12 @@ import { Router } from '@angular/router';
   styleUrl: './admin-setting-page.component.css'
 })
 export class AdminSettingPageComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private location: Location) {}
   navigateTo(path: string) {
     this.router.navigate([path]);
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

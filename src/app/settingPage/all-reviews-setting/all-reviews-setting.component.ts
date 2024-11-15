@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-all-reviews-setting',
@@ -20,7 +21,8 @@ export class AllReviewsSettingComponent implements OnInit{
   constructor(
     private router: Router,
     private http: HttpClient,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private location: Location
   ) {}
   ngOnInit(): void {
     this.loadReviews();
@@ -68,5 +70,9 @@ export class AllReviewsSettingComponent implements OnInit{
         console.error('Error occurred while updating review:', error);
       }
     );
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

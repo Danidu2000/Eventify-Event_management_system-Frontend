@@ -1,0 +1,63 @@
+/* Base styles */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 2.5rem; /* Default font size for larger screens */
+}
+
+.card-text {
+    font-size: 1.1rem; /* Default text size */
+    max-width: 2000px; /* Prevents text from exceeding the banner */
+}
+
+/* Medium screens (tablets, 768px and below) */
+@media (max-width: 768px) {
+    .card-img {
+        height: 300px; /* Adjust banner height */
+    }
+
+    .card-title {
+        font-size: 2rem; /* Slightly smaller title text */
+    }
+
+    .card-text {
+        font-size: 1rem; /* Adjust body text */
+    }
+}
+
+/* Small screens (mobile devices, 576px and below) */
+@media (max-width: 576px) {
+    .card-img {
+        height: 300px; /* Increase height for smaller devices */
+    }
+
+    .card-title {
+        font-size: 1.75rem; /* Smaller title text */
+    }
+
+    .card-text {
+        font-size: 0.6rem; /* Smaller body text */
+        padding: 0 1rem; /* Reduce padding for better fit */
+    }
+
+    .btn {
+        width: 90%; /* Adjust button width */
+    }
+}
+
+.hover-card {
+    transition: transform 0.3s, background-color 0.3s; /* Smooth transitions for hover effects */
+  }
+  
+  .hover-card:hover {
+    transform: scale(1.012); /* Slightly increase the size */
+  }
+  

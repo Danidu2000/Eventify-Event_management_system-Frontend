@@ -2,29 +2,29 @@
   <h2 class="pb-2 border-bottom"><i class="bi bi-gear"></i> Settings</h2>
   <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
     <div class="col d-flex align-items-start">
-      <div>
+      <div class="bg-body-secondary p-3 rounded hover-card">
         <h3 class="fs-2 text-body-emphasis"><i class="bi bi-person-circle"></i> Profile settings</h3>
         <p>The Profile Setting Component allows users to easily update personal details like name, contact, and
           password. With a simple, user-friendly design, it provides a quick way to keep profiles current and secure.
         </p>
-        <button (click)="navigateTo('profile-settings')" class="btn btn-outline-warning">
+        <button (click)="navigateTo('profile-settings')" class="btn btn-outline-warning mt-4">
           Go to settings
         </button>
       </div>
     </div>
-    <div class="col d-flex align-items-start">
-      <div>
+    <div class="col d-flex align-items-start hover-card">
+      <div class="bg-body-secondary p-3 rounded">
         <h3 class="fs-2 text-body-emphasis"><i class="bi bi-calendar-event"></i> Event settings</h3>
         <p>The Event Settings Component enables users to configure event details such as date, time, location, and
           ticket options. It’s designed to streamline event setup, ensuring all essential settings are managed
           efficiently for a seamless experience.</p>
-        <button (click)="navigateTo('event-settings')" class="btn btn-outline-warning">
+        <button (click)="navigateTo('event-settings')" class="btn btn-outline-warning mt-4">
           Go to settings
         </button>
       </div>
     </div>
     <div class="col d-flex align-items-start">
-      <div>
+      <div class="bg-body-secondary p-3 rounded hover-card">
         <h3 class="fs-2 text-body-emphasis"><i class="bi bi-card-text"></i> Review settings</h3>
         <p>The Review Settings Component allows users to customize and manage review options, ensuring valuable feedback
           is collected effectively. It provides controls to enable, filter, and moderate reviews, enhancing user
@@ -34,5 +34,6 @@
         </button>
       </div>
     </div>
+    <button (click)="navigateBack()" class="btn btn-warning w-100 py-2 my-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
   </div>
 </div>

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-setting',
@@ -20,7 +21,8 @@ export class UserSettingComponent implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private location: Location
   ) { }
   ngOnInit(): void {
     this.loadUsers();
@@ -66,5 +68,9 @@ export class UserSettingComponent implements OnInit {
         this.toastService.triggerAlertWarning('An error occurred while updating the user. Please try again!');
         console.error('Error occurred while updating user:', error);
       });
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

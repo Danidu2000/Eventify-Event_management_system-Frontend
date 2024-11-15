@@ -1,0 +1,8 @@
+.hover-card {
+    transition: transform 0.3s;
+  }
+  
+  .hover-card:hover {
+    transform: scale(1.05); /* Slightly increase the size */
+  }
+  

@@ -22,7 +22,8 @@
                     <input type="contact" class="form-control" id="txtContact" placeholder="contact" [(ngModel)]="user.contact">
                 </div>
                 <hr>
-                <button (click)="updateUser()" class="btn btn-warning w-100 py-2" type="submit">Update</button>
+                <button (click)="updateUser()" class="btn btn-secondary w-100 py-2 mb-2" type="submit"><i class="bi bi-pencil-square"></i> Update</button>
+                <button (click)="navigateBack()" class="btn btn-warning w-100 py-2" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
             </div>
         </div>
     </div>

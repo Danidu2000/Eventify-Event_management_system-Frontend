@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-input-review',
@@ -29,7 +30,8 @@ export class InputReviewComponent implements OnInit {
     private eventService: EventService,
     private authService: AuthService,
     private http: HttpClient,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -65,5 +67,9 @@ export class InputReviewComponent implements OnInit {
           console.error('Error adding review:', error);
         }
       );
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

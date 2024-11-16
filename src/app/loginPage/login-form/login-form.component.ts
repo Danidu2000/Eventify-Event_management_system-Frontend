@@ -27,7 +27,12 @@ export class LoginFormComponent {
   }
 
   onSignIn() {
-    this.http.post('http://localhost:8080/user/login', this.loginData)
+    if(!this.loginData.email) {
+      this.toastService.triggerAlertMessage('Please enter email');
+    }else if(!this.loginData.password) {
+      this.toastService.triggerAlertMessage('Please enter password');
+    }else{
+      this.http.post('http://localhost:8080/user/login', this.loginData)
       .subscribe({
         next: (data: any) => {
           if (data.conformation) { // Check the 'conformation' field for login success
@@ -45,6 +50,7 @@ export class LoginFormComponent {
           this.toastService.triggerAlertWarning('An error occurred during login: ' + error.message); // Handle HTTP errors
         }
       });
+    }
   }
 }
 

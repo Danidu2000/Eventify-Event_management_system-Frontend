@@ -48,6 +48,11 @@ export class PaymentComponent {
       date: this.date,
       userId: this.userId
     };
+    
+    if (!this.method||!this.amount||!this.date) {
+      this.toastService.triggerAlertWarning('Please fill in all the required fields.');
+      return;
+    }
 
     this.http.post('http://localhost:8080/payment/add-payment', paymentData).subscribe(
       (data) => {

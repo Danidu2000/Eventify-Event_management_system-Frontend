@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { ToastAlertComponentComponent } from "../../../alert/toast-alert-component/toast-alert-component.component";
 import { ToastService } from '../../../services/toast.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-review-setting-form',
@@ -22,7 +23,8 @@ export class ReviewSettingFormComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private http: HttpClient,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -72,5 +74,9 @@ export class ReviewSettingFormComponent implements OnInit {
         this.toastService.triggerAlertWarning('An error occurred while updating the review. Please try again.');
         console.error('Error occurred while updating review:', error);
       });
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

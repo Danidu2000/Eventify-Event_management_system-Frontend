@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ToastService } from '../../../services/toast.service';
 import { ToastAlertComponentComponent } from "../../../alert/toast-alert-component/toast-alert-component.component";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-event-input',
@@ -30,7 +31,7 @@ export class EventInputComponent {
   };
   selectedFile: File | null = null;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private toastService: ToastService) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private toastService: ToastService, private location: Location) { }
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
@@ -42,6 +43,12 @@ export class EventInputComponent {
   onSubmit(): void {
     // Set the organizer_id to the userId from AuthService
     this.event.organizerId = this.authService.getUserId();
+
+    // Check if all required fields are filled
+    if (!this.event.title || !this.event.description || !this.event.location || !this.event.date || !this.event.time) {
+      this.toastService.triggerAlertMessage('Please fill in all required fields.');
+      return;
+    }
 
     // Check if an image file is selected
     if (!this.selectedFile) {
@@ -59,6 +66,7 @@ export class EventInputComponent {
       (response) => {
         this.eventId = response;
         this.toastService.triggerAlertSuccess('Event created successfully');
+        this.toastService.triggerAlertMessage('Please add tickets');
       },
       (error) => {
         this.toastService.triggerAlertWarning('Failed to create event');
@@ -97,5 +105,9 @@ export class EventInputComponent {
         console.error(error);
       }
     );
+  }
+
+  navigateBack() {
+    this.location.back(); // Navigate to the previous page
   }
 }

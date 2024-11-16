@@ -28,13 +28,13 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Default file input example</label>
+                    <label for="formFile" class="form-label">Choose an Image</label>
                     <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
                 </div>
                 <hr>
                 <button (click)="onSubmit()" class="btn btn-warning w-100 py-2" type="submit">Create Event</button>
                 <hr>
-                <button (click)="navigateTo('event')"class="btn btn-warning w-25 py-2 mt-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
+                <button (click)="navigateBack()" class="btn btn-warning w-25 py-2 mt-3" type="submit"><i class="bi bi-arrow-left"></i> Back</button>
 
                 <div class="container mt-5">
                     <form>

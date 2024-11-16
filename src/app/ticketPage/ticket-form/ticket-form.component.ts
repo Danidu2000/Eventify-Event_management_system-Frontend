@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { CartService } from '../../services/cart.service';
+import { ToastService } from '../../services/toast.service';
+import { ToastAlertComponentComponent } from "../../alert/toast-alert-component/toast-alert-component.component";
 
 @Component({
   selector: 'app-ticket-form',
   standalone: true,
-  imports: [],
+  imports: [ToastAlertComponentComponent],
   templateUrl: './ticket-form.component.html',
   styleUrl: './ticket-form.component.css'
 })
 export class TicketFormComponent implements OnInit {
-  constructor(private router: Router, private eventService: EventService, private cartService: CartService) { }
+  constructor(private router: Router, private eventService: EventService, private cartService: CartService,private toastService: ToastService) { }
   ngOnInit(): void {
     this.loadTickets();
   }
@@ -56,6 +58,7 @@ export class TicketFormComponent implements OnInit {
 
   addToCart(ticketType: string, price: number) {
     this.cartService.addTicket({ type: ticketType, price: price });
+    this.toastService.triggerAlertSuccess('Ticket added to cart');
   }
 
 }

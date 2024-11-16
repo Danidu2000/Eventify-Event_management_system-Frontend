@@ -25,6 +25,10 @@ export class SignupFormComponent {
   constructor(private http: HttpClient,private toastService: ToastService, private router: Router) {}
 
   public addUser() {
+    if (!this.user.email || !this.user.password || !this.user.name || !this.user.contact) {
+      this.toastService.triggerAlertMessage('Please fill in all the required fields.');
+      return;
+    }
     this.http
       .post('http://localhost:8080/user/add-user', this.user)
       .subscribe((data) => {
